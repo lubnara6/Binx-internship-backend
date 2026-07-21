@@ -1,0 +1,1 @@
+public record OrderRequest(string ProductName, decimal Price);
