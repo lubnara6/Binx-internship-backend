@@ -25,3 +25,4 @@ On Day 2, I practiced the core fundamentals of C# programming.
 
 ```bash
 dotnet run
+```
