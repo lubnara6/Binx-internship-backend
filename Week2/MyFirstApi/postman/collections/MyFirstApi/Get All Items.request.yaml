@@ -1,0 +1,5 @@
+$kind: http-request
+url: http://localhost:5286/api/items
+method: GET
+examples: .resources/Get All Items.resources/examples
+order: 1785321991494

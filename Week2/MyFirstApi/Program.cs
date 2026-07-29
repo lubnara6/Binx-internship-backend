@@ -1,0 +1,47 @@
+var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container.
+builder.Services.AddControllers();
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.UseHttpsRedirection();
+
+app.MapControllers();
+app.MapGet("/products", () =>
+{
+    var products = new List<string>
+    {
+        "Laptop",
+        "Mouse",
+        "Keyboard"
+    };
+
+    return products;
+});
+app.MapGet("/products/{id}", (int id) =>
+{
+    var products = new List<string>
+    {
+        "Laptop",
+        "Mouse",
+        "Keyboard"
+    };
+
+    if (id < 1 || id > products.Count)
+    {
+        return Results.NotFound();
+    }
+
+    return Results.Ok(products[id - 1]);
+});
+app.Run();
