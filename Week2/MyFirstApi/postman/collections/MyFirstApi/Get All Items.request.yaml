@@ -1,5 +1,17 @@
 $kind: http-request
-url: http://localhost:5286/api/items
-method: GET
+name: Get All Items
+url: http://localhost:5286/api/books/2
+method: PUT
+body:
+  type: json
+  content: "{\r
+
+    \    \"title\": \"ASP.NET Core\",\r
+
+    \    \"price\": 75,\r
+
+    \    \"authorId\": 1\r
+
+    }"
 examples: .resources/Get All Items.resources/examples
 order: 1785321991494
