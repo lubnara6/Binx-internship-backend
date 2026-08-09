@@ -1,0 +1,17 @@
+$kind: http-request
+name: Create Book
+description: ""
+url: http://localhost:5286/api/books
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"title\": \"Clean Code\",\r
+
+    \  \"price\": 50,\r
+
+    \  \"authorId\": 1\r
+
+    }"
+order: 1786032056842

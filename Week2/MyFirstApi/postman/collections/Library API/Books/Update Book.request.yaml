@@ -1,0 +1,17 @@
+$kind: http-request
+name: Update Book
+description: ""
+url: http://localhost:5286/api/books/2
+method: PUT
+body:
+  type: json
+  content: "{\r
+
+    \    \"title\": \"ASP.NET Core\",\r
+
+    \    \"price\": 75,\r
+
+    \    \"authorId\": 1\r
+
+    }"
+order: 4467406734478626

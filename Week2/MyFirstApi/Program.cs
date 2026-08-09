@@ -1,15 +1,20 @@
 using MyFirstApi.Services;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 using MyFirstApi.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddControllers();
+
 builder.Services.AddScoped<IItemService, ItemService>();
+
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddIdentityCore<IdentityUser>()
+    .AddEntityFrameworkStores<AppDbContext>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
