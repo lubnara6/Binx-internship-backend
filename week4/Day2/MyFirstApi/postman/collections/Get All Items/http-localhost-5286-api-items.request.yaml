@@ -1,0 +1,6 @@
+$kind: http-request
+name: http://localhost:5286/api/items
+description: ""
+url: http://localhost:5286/products/2
+method: GET
+order: 1785317796236
