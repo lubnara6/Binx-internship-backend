@@ -1,0 +1,6 @@
+$kind: http-request
+name: Get Book By Id
+description: ""
+url: http://localhost:5286/api/books/2
+method: GET
+order: 4436482944657399
