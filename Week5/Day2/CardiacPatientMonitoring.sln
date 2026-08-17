@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardiacPatientMonitoring.Api", "CardiacPatientMonitoring.Api\CardiacPatientMonitoring.Api.csproj", "{F3761F59-0718-4D27-95A5-1930454C8BCE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardiacPatientMonitoring.Tests", "CardiacPatientMonitoring.Tests\CardiacPatientMonitoring.Tests.csproj", "{A49E728A-253E-494F-873C-F017FD653961}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F3761F59-0718-4D27-95A5-1930454C8BCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3761F59-0718-4D27-95A5-1930454C8BCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3761F59-0718-4D27-95A5-1930454C8BCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3761F59-0718-4D27-95A5-1930454C8BCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A49E728A-253E-494F-873C-F017FD653961}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A49E728A-253E-494F-873C-F017FD653961}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A49E728A-253E-494F-873C-F017FD653961}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A49E728A-253E-494F-873C-F017FD653961}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
