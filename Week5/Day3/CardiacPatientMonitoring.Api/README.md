@@ -1,77 +1,92 @@
-# Day 2 — Mocking Dependencies with Moq
+# Cardiac Patient Monitoring API
 
-## Overview
+ASP.NET Core Web API project developed as part of the Backend Training — Day 3.
 
-Day 2 focused on using **Moq** to isolate a service from its repository dependency during unit testing.
+The main focus of this day is **Integration Testing with WebApplicationFactory**.
 
-The Cardiac Patient Monitoring System uses `IPatientRepository` as an abstraction between the `PatientService` and the data access layer. Moq was used to create a mock implementation of this repository so the service could be tested without using a real database or repository.
+## Technologies
 
-## What Was Implemented
+* ASP.NET Core 8
+* C#
+* Entity Framework Core
+* EF Core In-Memory Database
+* xUnit
+* WebApplicationFactory
+* JWT Authentication
+* Swagger
 
-### 1. Repository Dependency
-
-`PatientService` depends on `IPatientRepository` through dependency injection.
-
-This allows the repository to be replaced with a mock during unit tests.
-
-### 2. Moq Setup
-
-A mock repository was created using:
-
-```csharp
-var mockRepository = new Mock<IPatientRepository>();
-```
-
-The mock was configured to return a specific patient when `GetByIdAsync()` is called.
-
-### 3. Mocked Return Values
-
-A test verifies that `GetPatientAsync()` correctly returns a patient provided by the mocked repository.
-
-### 4. Mocked Exceptions
-
-A test configures the repository to throw an exception and verifies that the service propagates the exception correctly.
-
-### 5. Verify
-
-Moq's `Verify()` method was used to confirm that the repository's `GetByIdAsync()` method was called exactly once.
-
-## Unit Tests
-
-The test project contains tests for:
-
-* Normal heart rate validation.
-* High heart rate validation.
-* Low heart rate validation.
-* Returning an existing patient using a mocked repository.
-* Returning `null` when a patient does not exist.
-* Handling a repository exception.
-* Verifying repository interaction.
-
-## Testing
-
-The project was successfully built and all unit tests passed.
+## Project Structure
 
 ```text
-Build succeeded.
-0 Warning(s)
-0 Error(s)
-
-Passed: 8
-Failed: 0
-Skipped: 0
-Total: 8
+Day3
+├── CardiacPatientMonitoring.Api
+│   ├── Controllers
+│   ├── Data
+│   ├── Models
+│   ├── Repositories
+│   ├── Services
+│   └── Program.cs
+│
+└── CardiacPatientMonitoring.Tests
+    └── PatientApiTests.cs
 ```
 
-## Tools Used
+## API Features
 
-* .NET 8
-* xUnit
-* Moq
-* C#
-* Visual Studio Code
-* Git & GitHub
+* Get a patient by ID.
+* Return `404 Not Found` when the patient does not exist.
+* Store patient data using an EF Core In-Memory Database.
+* Protect endpoints using JWT authentication.
+* Test authenticated and unauthenticated requests.
 
-## Learning Outcome
+## Integration Testing
 
-This day demonstrated how mocking can isolate service logic from external dependencies and how Moq can be used to control return values, simulate exceptions, and verify interactions with dependencies.
+The project uses `WebApplicationFactory<Program>` to run the API in memory and send HTTP requests using `HttpClient`.
+
+The tests cover:
+
+### Get Patient
+
+* Existing patient → `200 OK`
+* Non-existing patient → `404 Not Found`
+
+### Protected Endpoint
+
+* Without JWT token → `401 Unauthorized`
+* With a valid JWT token → `200 OK`
+
+## Test Results
+
+```text
+Passed: 12
+Failed: 0
+Skipped: 0
+Total: 12
+```
+
+All integration tests are passing successfully.
+
+## Run the API
+
+```bash
+cd CardiacPatientMonitoring.Api
+dotnet run
+```
+
+## Run Tests
+
+From the `Day3` folder:
+
+```bash
+dotnet test
+```
+
+## Day 3 Topics
+
+This project demonstrates:
+
+* Setting up `WebApplicationFactory`
+* Testing real HTTP endpoints
+* Using a separate In-Memory test database
+* Testing HTTP status codes and response bodies
+* Testing protected endpoints with JWT authentication
